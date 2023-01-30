@@ -1,23 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import PersonsCard from "./Components/PersonsCard";
+import { useState } from "react";
+import { v4 as uuid } from "uuid";
+import BirthdayForm from "./Components/BirthdayForm";
+import pplInfo from "./Data/pplInfo";
 
 function App() {
+  // function addPerson() {
+  //   const [addOne, setAddOne] = useState("");
+  // }
+  const [addPerson] = useState();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <h1>Birthday Reminder App</h1>
+      <h2>There are {pplInfo.length} Birthdays!</h2>
+      <div className="buttonDiv">
+        <button
+          onClick={() => {
+            console.log("You clicked to REMOVE");
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Click to Remove
+        </button>
+        <button
+          onClick={() => {
+            console.log("You clicked to ADD");
+          }}
+        >
+          Click to Add
+        </button>
+      </div>
+      <div>
+        {pplInfo.map((pplObj) => {
+          const { person, age, birthMonth, isItBirthday, image } = pplObj;
+          return (
+            <PersonsCard
+              className="personCard"
+              person={person}
+              age={age}
+              birthMonth={birthMonth}
+              isItBirthday={isItBirthday}
+              image={image}
+              key={uuid()}
+            />
+          );
+        })}
+      </div>
+      <BirthdayForm />
+      {/* <div>
+        {pplInfo.map((pics) => {
+          return <img src={pics.image} />;
+        })}
+      </div> */}
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import pplInfo from "../Data/pplInfo";
+import { v4 as uuid } from "uuid";
+//import pplInfo from "../Data/pplInfo";
 //const [people, setPeople] = useState(pplInfo);
-const BirthdayForm = () => {
-  //const [] = useState(pplInfo);
+const BirthdayForm = (props) => {
+  const { addBirthdayProp } = props; //--Uncokmment once the newBirthdayObj issue is fixed
+
   const [newName, setText] = useState("");
   const changeText = (e) => {
     setText(e.target.value);
@@ -24,28 +26,29 @@ const BirthdayForm = () => {
     setNewPicUrl(e.target.value);
     console.log(e.target.value);
   };
-  // Each input needs to "onChange" set the useState functions above
 
-  //below is just copied - so fix it
-  // https://epicreact.dev/how-to-type-a-react-form-on-submit-handler/
-
-  //function handleSubmit(event) {
-  //event.preventDefault();
-  // onSubmitUsername(event.currentTarget.elements.personName);
-  // if (personName) {
-  //alert("please enter text");
-  //}
-  // }
   const birthdayFormSubmit = (e) => {
     e.preventDefault();
+
     const newBirthdayObj = {
-      newName: newName,
-      newAge: newAge,
-      newMonth: newMonth,
-      newPicUrl: newPicUrl,
+      newName, //: newName,
+      newAge, //: newAge,
+      newMonth, //: newMonth,
+      newPicUrl, //: newPicUrl,
+      id: uuid(),
     };
-    console.dir(newBirthdayObj.value + "is it working");
+
+    // console.log(newBirthdayObj);
+    addBirthdayProp(newBirthdayObj);
+    //console.log(JSON.stringify(newBirthdayObj));
+
+    //clear the name, age, month & URL after
+    // setText("");
+    //setNewAge("");
+    //setNewMonth("");
+    // setNewPicUrl("");
   };
+
   return (
     <form onSubmit={birthdayFormSubmit}>
       {" "}

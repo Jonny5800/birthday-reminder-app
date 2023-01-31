@@ -6,15 +6,24 @@ import BirthdayForm from "./Components/BirthdayForm";
 import pplInfo from "./Data/pplInfo";
 
 function App() {
+  const [people, setPeople] = useState(pplInfo);
   const [showForm, setShowForm] = useState(false);
-  //const [addRemoveBtn, SetAddRemoveBtn] = useState("Add Birthday");
-  //const [addBirthdayButton, setAddBirthdayButton] = useState("Add A Birthday");
 
+  // --Uncomment this once the object issue is fixed in birthday form
+  const addBirthday = (newBirthdayEntry) => {
+    console.log(newBirthdayEntry);
+    setPeople([newBirthdayEntry, ...people]);
+    console.log(pplInfo);
+  };
   return (
     <div className="App">
       <h1>Birthday Reminder App</h1>
       <h2>There are {pplInfo.length} Birthdays!</h2>
-      {showForm ? <BirthdayForm /> : console.log("")}
+      {showForm ? (
+        <BirthdayForm addBirthdayProp={addBirthday} />
+      ) : (
+        console.log("")
+      )}
       {/* {showForm && <BirthdayForm />} */}
       <div className="buttonDiv">
         <button

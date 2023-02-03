@@ -2,37 +2,37 @@ import React from "react";
 import pplInfo from "../Data/pplInfo";
 import { useState } from "react";
 
-// come back - pplInfo already declared so causes an error
-// const [pplInfo, setPplInfo] = useState("");
 function PersonsCard(props) {
-  //   const deleteBirthday = (id) => {
-  //     setPplInfo(pplInfo.filter((item) => item.id !== id));
-  //  };
   const [people, setPeople] = useState(pplInfo);
-  const { person, age, birthMonth, image, id } = props;
+  const { person, age, birthMonth, image, id, isItBirthday } = props;
   const onRemove = (id) => {
     const updatedPeople = people.filter((item) => item.id !== id);
     setPeople(updatedPeople);
   };
   return (
-    <div>
-      <img className="images" src={image} alt={"altText"} />
-      <button
-        onClick={() => {
-          onRemove(id);
-          console.log("You Clicked Delete B-Day:" + id);
-          // (id) => {
-          //   deleteBirthday(id);
-          // };
-        }}
-      >
-        delete
-      </button>
-      <h4>{person}</h4>
-      <h5>{age}</h5>
-      <h5>{birthMonth}</h5>
+    <div className="personCard">
+      <div className="picNDetailsDiv">
+        <div className="imageDiv">
+          <img className="images" src={image} alt={"altText"} />
+        </div>
 
-      {/* <h5>{image}</h5> */}
+        <div className="details">
+          <h4 className="labelName">{person}</h4>
+          <h5 className="labelAge">{age}</h5>
+          <h5 className="labelMonth">{birthMonth}</h5>
+          {/* <h5>{isItBirthday}</h5> This needs adding elsewe. Conditional */}
+        </div>
+      </div>
+      <div className="deleteDiv">
+        <button
+          onClick={() => {
+            onRemove(id);
+            console.log("You Clicked Delete B-Day:" + id);
+          }}
+        >
+          delete
+        </button>
+      </div>
     </div>
   );
 }

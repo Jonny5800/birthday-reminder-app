@@ -1,22 +1,108 @@
-.App {
-  text-align: center;
-  border: 1px solid black;
+* {
+  /* border: 1px solid black; */
 }
+
+.form {
+  display: flex;
+  text-align: center;
+}
+body {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  /* display: flex; */
+}
+.container > .right {
+  flex-grow: 1;
+}
+.container > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 0 10px;
+}
+.comtainer > div.left {
+  align-items: flex-end;
+}
+.left > div,
+.right > div {
+  margin: 5px 0;
+  height: 1.5em;
+}
+div.right > div:nth-child(3n-1) input {
+  width: 50%;
+}
+input {
+  border: 1px solid;
+  font-size: inherit;
+}
+
+.personCard {
+  background-image: linear-gradient(to right, white, plum);
+  border-radius: 35px;
+  box-shadow: 5px 5px lightslategray;
+  margin: 30px 20px;
+  height: 140px;
+  padding: 10px;
+}
+
+.App {
+  /* text-align: center; */
+}
+.headerDiv {
+  background-color: skyblue;
+}
+.picNDetailsDiv {
+  display: flex;
+  align-items: center;
+}
+.imageDiv {
+}
+.images {
+  /* max-width: 10px; */
+  max-height: 130px;
+  border-radius: 35px;
+  border: none;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.deleteDiv {
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+
+.details {
+  border: 1px red solid;
+  /* flex: 1; */
+}
+
+.labelName {
+  color: blue;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+}
+.labelAge {
+  color: red;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+}
+.labelMonth {
+  color: rebeccapurple;
+  margin: 0 auto;
+}
+
+/* *********************** */
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+.App-link {
+  color: #61dafb;
+}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-.images {
-  max-width: 100px;
-}
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -25,12 +111,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

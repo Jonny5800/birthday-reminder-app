@@ -1,30 +1,94 @@
 import "./App.css";
 import PersonsCard from "./Components/PersonsCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import BirthdayForm from "./Components/BirthdayForm";
 import pplInfo from "./Data/pplInfo";
+import LiveBirthdayList from "./Components/LiveBirthdayList";
 
 function App() {
   const [people, setPeople] = useState(pplInfo);
   const [showForm, setShowForm] = useState(false);
 
-  // --Uncomment this once the object issue is fixed in birthday form
   const addBirthday = (newBirthdayEntry) => {
-    console.log(newBirthdayEntry);
     setPeople([newBirthdayEntry, ...people]);
-    console.log(pplInfo);
+
+    //console.log(pplInfo);
+    // console.log(people);
+    //console.log(newBirthdayEntry);
   };
+  useEffect(() => {
+    console.log(people);
+  }, [people]);
+
+  {
+    let wholeDate = new Date();
+    let currentMonth = wholeDate.getMonth();
+
+    // console.log(wholeDate);******
+    //console.log(currentMonth);*****
+
+    const monthList = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const dayList = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    function MyComponent() {
+      let wholeDate = new Date();
+      let currentDay = wholeDate.getDay();
+
+      let currentMonth = wholeDate.getMonth();
+      let currentYear = wholeDate.getFullYear();
+
+      useEffect(() => {
+        console.log(currentDay);
+        console.log("current day");
+      }, [currentDay]);
+    }
+    // useEffect(() => {
+    //   console.log(currentYear);
+    //   console.log("current year");
+    // }, [currentYear]);
+
+    useEffect(() => {
+      //This works to log the actual current month
+      console.log(monthList[currentMonth]);
+      console.log("use effect");
+    }, [currentMonth]);
+  }
+
   return (
     <div className="App">
-      <h1>Birthday Reminder App</h1>
-      <h2>There are {pplInfo.length} Birthdays!</h2>
-      {showForm ? (
-        <BirthdayForm addBirthdayProp={addBirthday} />
-      ) : (
-        console.log("")
-      )}
-      {/* {showForm && <BirthdayForm />} */}
+      <div className="headerDiv">
+        <h1>Birthday Reminder App</h1>
+        <h2>There are {people.length} Birthdays!</h2>
+      </div>
+
+      {
+        showForm ? (
+          <BirthdayForm className="form" addBirthdayProp={addBirthday} />
+        ) : null //was an empty string ("")
+      }
+
       <div className="buttonDiv">
         <button
           onClick={() => {
@@ -34,19 +98,13 @@ function App() {
             } else if (showForm === true) {
               setShowForm(false);
             }
-            //setShowForm(!showForm);
           }}
-          //  <button
-          // onClick={() => {
-          //   console.log("You clicked to ADD");
-          //   setShowForm(!showForm);
-          // }}
         >
           Add A Birthday
         </button>
       </div>
       <div>
-        {pplInfo.map((pplObj) => {
+        {people.map((pplObj) => {
           const { person, age, birthMonth, isItBirthday, image, id } = pplObj;
           return (
             <PersonsCard
@@ -58,16 +116,11 @@ function App() {
               isItBirthday={isItBirthday}
               image={image}
               id={id}
+              updatedPeopleList={people}
             />
           );
         })}
       </div>
-
-      {/* <div>
-        {pplInfo.map((pics) => {
-          return <img src={pics.image} />;
-        })}
-      </div> */}
     </div>
   );
 }

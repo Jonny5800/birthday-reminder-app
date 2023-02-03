@@ -1,29 +1,34 @@
 import React from "react";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-//import pplInfo from "../Data/pplInfo";
-//const [people, setPeople] = useState(pplInfo);
-const BirthdayForm = (props) => {
-  const { addBirthdayProp } = props; //--Uncokmment once the newBirthdayObj issue is fixed
 
-  const [newName, setText] = useState("");
+const BirthdayForm = (props) => {
+  const { addBirthdayProp } = props;
+
+  const [person, setText] = useState("");
   const changeText = (e) => {
     setText(e.target.value);
     console.log(e.target.value);
   };
-  const [newAge, setNewAge] = useState("");
+  const [age, setAge] = useState("");
   const changeAge = (e) => {
-    setNewAge(e.target.value);
+    setAge(e.target.value);
     console.log(e.target.value);
   };
-  const [newMonth, setNewMonth] = useState("");
+  const [birthMonth, setbirthMonth] = useState("");
   const changeMonth = (e) => {
-    setNewMonth(e.target.value);
+    setbirthMonth(e.target.value);
     console.log(e.target.value);
   };
-  const [newPicUrl, setNewPicUrl] = useState("");
+  const [image, setImage] = useState("");
   const changePicUrl = (e) => {
-    setNewPicUrl(e.target.value);
+    setImage(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const [birthThisMonth, setBirthThisMonth] = useState("");
+  const birthMonthTrue = (e) => {
+    setBirthThisMonth(e.target.value);
     console.log(e.target.value);
   };
 
@@ -31,80 +36,127 @@ const BirthdayForm = (props) => {
     e.preventDefault();
 
     const newBirthdayObj = {
-      newName, //: newName,
-      newAge, //: newAge,
-      newMonth, //: newMonth,
-      newPicUrl, //: newPicUrl,
+      person, //: person,
+      age, //: age,
+      birthMonth, //: birthMonth,
+      image, //: image,
       id: uuid(),
     };
 
-    // console.log(newBirthdayObj);
     addBirthdayProp(newBirthdayObj);
-    //console.log(JSON.stringify(newBirthdayObj));
 
     //clear the name, age, month & URL after
     // setText("");
-    //setNewAge("");
-    //setNewMonth("");
-    // setNewPicUrl("");
+    //setage("");
+    //setbirthMonth("");
+    // setimage("");
   };
 
   return (
     <form onSubmit={birthdayFormSubmit}>
-      {" "}
-      {/*onSubmit={handleSubmit}*/}
       <label>Submit a New Birthday</label>
-      <div>
-        <label>Name</label>
-        <input
-          type="text"
-          placeholder={"Enter name"}
-          name={"personName"}
-          onChange={changeText}
-          value={newName}
 
-          ////value={personName}
+      {/* Form container */}
+      <div className="container">
+        <div className="left">
+          {/* <label>Birth Month</label> */}
+          {/* <label>Url of picture</label> */}
+        </div>
 
-          //Commented because onf the ONCHANGE above
-          // onChange={(target) => {
-          //   setNewName();
-          //   console.log(target.input);
-          // }}
-        />
+        <div className="right">
+          <label>Name</label>
+          <div>
+            <input
+              type="text"
+              placeholder={"Enter name"}
+              name={"personName"}
+              onChange={changeText}
+              value={person}
+            />
+          </div>
+          <label>Age</label>
+          <div>
+            <input
+              type="text"
+              name={"age"}
+              placeholder={"Enter Age"}
+              value={age}
+              onChange={changeAge}
+            />
+          </div>{" "}
+          <label>Birth Month</label>
+          <div>
+            <input
+              type="text"
+              name={"birthMonth"}
+              value={birthMonth}
+              placeholder={"Enter Birth Month"}
+              onChange={changeMonth}
+            />
+          </div>
+          <label>Url of picture</label>
+          <div>
+            <input
+              type="text"
+              name={"imageUrl"}
+              placeholder={"paste full URL"}
+              value={image}
+              onChange={changePicUrl}
+            />
+          </div>
+        </div>
+
+        {/* form container */}
       </div>
-      <div>
-        <label>Age</label>
-        <input
-          type="text"
-          name={"age"}
-          placeholder={"Enter Age"}
-          value={newAge}
-          onChange={changeAge}
-        />
-      </div>
-      <div>
-        <label>Birth Month</label>
-        <input
-          type="text"
-          name={"birthMonth"}
-          value={newMonth}
-          placeholder={"Enter Birth Month"}
-          onChange={changeMonth}
-        />
-      </div>
-      <div>
-        <label>Url of picture</label>
-        <input
-          type="text"
-          name={"imageUrl"}
-          placeholder={"paste full URL"}
-          value={newPicUrl}
-          onChange={changePicUrl}
-        />
-      </div>
+
       <button type="submit">Submit</button>
     </form>
   );
 };
 
 export default BirthdayForm;
+
+//  <form onSubmit={birthdayFormSubmit}>
+//    <label>Submit a New Birthday</label>
+//    <div>
+//      <label>Name</label>
+//      <input
+//        type="text"
+//        placeholder={"Enter name"}
+//        name={"personName"}
+//        onChange={changeText}
+//        value={person}
+//      />
+//    </div>
+//    <div>
+//      <label>Age</label>
+//      <input
+//        type="text"
+//        name={"age"}
+//        placeholder={"Enter Age"}
+//        value={age}
+//        onChange={changeAge}
+//      />
+//    </div>
+//    <div>
+//      <label>Birth Month</label>
+//      <input
+//        type="text"
+//        name={"birthMonth"}
+//        value={birthMonth}
+//        placeholder={"Enter Birth Month"}
+//        onChange={changeMonth}
+//      />
+//    </div>
+//    <div>
+//      <label>Url of picture</label>
+//      <input
+//        type="text"
+//        name={"imageUrl"}
+//        placeholder={"paste full URL"}
+//        value={image}
+//        onChange={changePicUrl}
+//      />
+//    </div>
+//    <button type="submit">Submit</button>
+//  </form>;

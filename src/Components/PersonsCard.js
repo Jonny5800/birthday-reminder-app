@@ -4,7 +4,15 @@ import { useState } from "react";
 
 function PersonsCard(props) {
   const [people, setPeople] = useState(pplInfo);
-  const { person, age, birthMonth, image, id, isItBirthday } = props;
+  const {
+    person,
+    age,
+    birthMonth,
+    image,
+    id,
+    isItBirthday,
+    setDeletePerson = { setDeletePerson },
+  } = props;
   const onRemove = (id) => {
     const updatedPeople = people.filter((item) => item.id !== id);
     setPeople(updatedPeople);
@@ -26,9 +34,18 @@ function PersonsCard(props) {
       <div className="deleteDiv">
         <button
           onClick={() => {
-            onRemove(id);
-            console.log("You Clicked Delete B-Day:" + id);
+            console.log("delete pressed on ");
+            // console.log(person.age);
+            // console.log(people.id);
+            console.log(id);
+            // console.log(birthMonth);
+            console.log(people);
           }}
+          //
+          // onClick={() => {
+          //   onRemove(id);
+          //   console.log("You Clicked Delete B-Day:" + id);
+          // }}
         >
           delete
         </button>

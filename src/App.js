@@ -9,6 +9,7 @@ import LiveBirthdayList from "./Components/LiveBirthdayList";
 function App() {
   const [people, setPeople] = useState(pplInfo);
   const [showForm, setShowForm] = useState(false);
+  const [dunno, setDeletePerson] = useState(people);
 
   const addBirthday = (newBirthdayEntry) => {
     setPeople([newBirthdayEntry, ...people]);
@@ -17,6 +18,12 @@ function App() {
     // console.log(people);
     //console.log(newBirthdayEntry);
   };
+  /************** */
+  const deletePerson = (id) => {
+    setPeople(people.filter((item) => item.id !== id));
+  };
+  // fix between these lines
+  /**************** */
   useEffect(() => {
     console.log(people);
   }, [people]);
@@ -82,13 +89,15 @@ function App() {
         <h1>Birthday Reminder App</h1>
         <h2>There are {people.length} Birthdays!</h2>
       </div>
-
       {
         showForm ? (
-          <BirthdayForm className="form" addBirthdayProp={addBirthday} />
+          <BirthdayForm
+            className="form"
+            addBirthdayProp={addBirthday}
+            setShowForm={setShowForm}
+          />
         ) : null //was an empty string ("")
       }
-
       <div className="buttonDiv">
         <button
           onClick={() => {
@@ -117,6 +126,7 @@ function App() {
               image={image}
               id={id}
               updatedPeopleList={people}
+              setDeletePerson={setDeletePerson}
             />
           );
         })}

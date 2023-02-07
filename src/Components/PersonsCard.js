@@ -11,12 +11,20 @@ function PersonsCard(props) {
     image,
     id,
     isItBirthday,
-    setDeletePerson = { setDeletePerson },
+    //deletePerson,
+    pplObj,
+    updatedPeopleList,
   } = props;
   const onRemove = (id) => {
     const updatedPeople = people.filter((item) => item.id !== id);
     setPeople(updatedPeople);
   };
+
+  const deletePerson = (id) => {
+    setPeople(people.filter((people) => people.id !== id));
+    console.log(id, "should delete");
+  };
+
   return (
     <div className="personCard">
       <div className="picNDetailsDiv">
@@ -34,12 +42,17 @@ function PersonsCard(props) {
       <div className="deleteDiv">
         <button
           onClick={() => {
-            console.log("delete pressed on ");
-            // console.log(person.age);
-            // console.log(people.id);
-            console.log(id);
-            // console.log(birthMonth);
-            console.log(people);
+            //console.log(pplObj, " pplObj"); //**NEED THIS */
+            return deletePerson(pplObj.id);
+            console.log(deletePerson);
+            //deletePerson(pplObj.id, "pplObj.id");
+            //onRemove(pplObj.id, "on remove");
+
+            //console.log(people, "people");
+            //console.log(person, "person");
+
+            //console.log(id); works
+            //console.log(people); works
           }}
           //
           // onClick={() => {

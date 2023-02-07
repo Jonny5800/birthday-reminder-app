@@ -4,23 +4,18 @@ import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import BirthdayForm from "./Components/BirthdayForm";
 import pplInfo from "./Data/pplInfo";
-import LiveBirthdayList from "./Components/LiveBirthdayList";
 
 function App() {
   const [people, setPeople] = useState(pplInfo);
   const [showForm, setShowForm] = useState(false);
-  const [dunno, setDeletePerson] = useState(people);
 
   const addBirthday = (newBirthdayEntry) => {
     setPeople([newBirthdayEntry, ...people]);
-
-    //console.log(pplInfo);
-    // console.log(people);
-    //console.log(newBirthdayEntry);
   };
   /************** */
   const deletePerson = (id) => {
-    setPeople(people.filter((item) => item.id !== id));
+    setPeople(people.filter((people) => people.id !== id));
+    console.log(id, "should delete");
   };
   // fix between these lines
   /**************** */
@@ -49,7 +44,7 @@ function App() {
       "November",
       "December",
     ];
-    const dayList = [
+    /*****const dayList = [
       "Sunday",
       "Monday",
       "Tuesday",
@@ -57,9 +52,9 @@ function App() {
       "Thursday",
       "Friday",
       "Saturday",
-    ];
+    ];****/
 
-    function MyComponent() {
+    /*****function MyComponent() {
       let wholeDate = new Date();
       let currentDay = wholeDate.getDay();
 
@@ -70,7 +65,8 @@ function App() {
         console.log(currentDay);
         console.log("current day");
       }, [currentDay]);
-    }
+    }****/
+
     // useEffect(() => {
     //   console.log(currentYear);
     //   console.log("current year");
@@ -78,8 +74,8 @@ function App() {
 
     useEffect(() => {
       //This works to log the actual current month
-      console.log(monthList[currentMonth]);
-      console.log("use effect");
+      //console.log(monthList[currentMonth]); //*******ADD BACK
+      //console.log("use effect"); //*******ADD BACK
     }, [currentMonth]);
   }
 
@@ -95,6 +91,7 @@ function App() {
             className="form"
             addBirthdayProp={addBirthday}
             setShowForm={setShowForm}
+            deletePerson={deletePerson} //************ADD BACK */
           />
         ) : null //was an empty string ("")
       }
@@ -114,23 +111,48 @@ function App() {
       </div>
       <div>
         {people.map((pplObj) => {
-          const { person, age, birthMonth, isItBirthday, image, id } = pplObj;
-          return (
+          const {
+            person,
+            age,
+            birthMonth,
+            isItBirthday,
+            image,
+            id,
+            deletePerson,
+          } = pplObj;
+
+          return people.length > 1 ? (
             <PersonsCard
               className="personCard"
               person={person}
               age={age}
               key={uuid()}
+              pplObj={pplObj}
               birthMonth={birthMonth}
               isItBirthday={isItBirthday}
               image={image}
               id={id}
-              updatedPeopleList={people}
-              setDeletePerson={setDeletePerson}
+              updatedPeopleList={people} //the list of people
+              // deletePerson={deletePerson} //passing the delete funtion
+
+              // setDeletePerson={setDeletePerson}
+              //**************
+
+              //deletePerson={deletePerson}
             />
+          ) : (
+            []
           );
         })}
       </div>
+
+      <button
+        onClick={() => {
+          setPeople([""]);
+        }}
+      >
+        Clear ALl
+      </button>
     </div>
   );
 }

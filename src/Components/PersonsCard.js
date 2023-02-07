@@ -21,10 +21,14 @@ function PersonsCard(props) {
   };
 
   const deletePerson = (id) => {
-    setPeople(people.filter((people) => people.id !== id));
-    console.log(id, "should delete");
+    setPeople((people) => people.filter((delPers) => delPers.id !== id));
+    console.log(id, "should delete from PersonCard");
+    console.log(pplObj);
   };
-
+  // const deletePerson = (id) => {
+  //   setPeople(people.filter((people) => people.id !== id));
+  //   console.log(id, "should delete");
+  // };
   return (
     <div className="personCard">
       <div className="picNDetailsDiv">
@@ -43,8 +47,8 @@ function PersonsCard(props) {
         <button
           onClick={() => {
             //console.log(pplObj, " pplObj"); //**NEED THIS */
-            return deletePerson(pplObj.id);
-            console.log(deletePerson);
+            deletePerson(pplObj.id);
+            //console.log(deletePerson);
             //deletePerson(pplObj.id, "pplObj.id");
             //onRemove(pplObj.id, "on remove");
 

@@ -15,7 +15,7 @@ function App() {
   /************** */
   const deletePerson = (id) => {
     setPeople(people.filter((people) => people.id !== id));
-    console.log(id, "should delete");
+    console.log(id, "should delete from App");
   };
   // fix between these lines
   /**************** */

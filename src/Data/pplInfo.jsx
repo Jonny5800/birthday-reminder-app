@@ -18,7 +18,7 @@ const pplInfo = [
   },
   ///home/jonny5800/repos/sandbox/react/birthday-reminder-app/src/Images/beejayHall.jpeg
   {
-    person: "Jonny Hall",
+    person: "Jonny  Hall",
     age: 35,
     birthMonth: "October 5th",
     isItBirthday: true,

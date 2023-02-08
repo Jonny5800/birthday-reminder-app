@@ -12,72 +12,14 @@ function App() {
   const addBirthday = (newBirthdayEntry) => {
     setPeople([newBirthdayEntry, ...people]);
   };
-  /************** */
-  const deletePerson = (id) => {
-    setPeople(people.filter((people) => people.id !== id));
-    console.log(id, "should delete from App");
-  };
-  // fix between these lines
-  /**************** */
+  // const deletePerson = (id) => {
+  //   setPeople(people.filter((people) => people.id !== id));
+  //   console.log(id, "should delete from App");
+  // };
+
   useEffect(() => {
     console.log(people);
   }, [people]);
-
-  {
-    let wholeDate = new Date();
-    let currentMonth = wholeDate.getMonth();
-
-    // console.log(wholeDate);******
-    //console.log(currentMonth);*****
-
-    const monthList = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-    /*****const dayList = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];****/
-
-    /*****function MyComponent() {
-      let wholeDate = new Date();
-      let currentDay = wholeDate.getDay();
-
-      let currentMonth = wholeDate.getMonth();
-      let currentYear = wholeDate.getFullYear();
-
-      useEffect(() => {
-        console.log(currentDay);
-        console.log("current day");
-      }, [currentDay]);
-    }****/
-
-    // useEffect(() => {
-    //   console.log(currentYear);
-    //   console.log("current year");
-    // }, [currentYear]);
-
-    useEffect(() => {
-      //This works to log the actual current month
-      //console.log(monthList[currentMonth]); //*******ADD BACK
-      //console.log("use effect"); //*******ADD BACK
-    }, [currentMonth]);
-  }
 
   return (
     <div className="App">
@@ -85,16 +27,14 @@ function App() {
         <h1>Birthday Reminder App</h1>
         <h2>There are {people.length} Birthdays!</h2>
       </div>
-      {
-        showForm ? (
-          <BirthdayForm
-            className="form"
-            addBirthdayProp={addBirthday}
-            setShowForm={setShowForm}
-            deletePerson={deletePerson} //************ADD BACK */
-          />
-        ) : null //was an empty string ("")
-      }
+      {showForm ? (
+        <BirthdayForm
+          className="form"
+          addBirthdayProp={addBirthday}
+          setShowForm={setShowForm}
+          //deletePerson={deletePerson} ****from commenting the function
+        />
+      ) : null}
       <div className="buttonDiv">
         <button
           onClick={() => {
@@ -132,13 +72,8 @@ function App() {
               isItBirthday={isItBirthday}
               image={image}
               id={id}
+              setPeople={setPeople}
               updatedPeopleList={people} //the list of people
-              // deletePerson={deletePerson} //passing the delete funtion
-
-              // setDeletePerson={setDeletePerson}
-              //**************
-
-              //deletePerson={deletePerson}
             />
           ) : (
             []

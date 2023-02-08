@@ -12,6 +12,7 @@ function PersonsCard(props) {
     id,
     isItBirthday,
     //deletePerson,
+
     pplObj,
     updatedPeopleList,
   } = props;
@@ -25,10 +26,7 @@ function PersonsCard(props) {
     console.log(id, "should delete from PersonCard");
     console.log(pplObj);
   };
-  // const deletePerson = (id) => {
-  //   setPeople(people.filter((people) => people.id !== id));
-  //   console.log(id, "should delete");
-  // };
+
   return (
     <div className="personCard">
       <div className="picNDetailsDiv">
@@ -46,23 +44,8 @@ function PersonsCard(props) {
       <div className="deleteDiv">
         <button
           onClick={() => {
-            //console.log(pplObj, " pplObj"); //**NEED THIS */
             deletePerson(pplObj.id);
-            //console.log(deletePerson);
-            //deletePerson(pplObj.id, "pplObj.id");
-            //onRemove(pplObj.id, "on remove");
-
-            //console.log(people, "people");
-            //console.log(person, "person");
-
-            //console.log(id); works
-            //console.log(people); works
           }}
-          //
-          // onClick={() => {
-          //   onRemove(id);
-          //   console.log("You Clicked Delete B-Day:" + id);
-          // }}
         >
           delete
         </button>
@@ -72,4 +55,3 @@ function PersonsCard(props) {
 }
 
 export default PersonsCard;
-//src/Images/jonnyHall.jpeg

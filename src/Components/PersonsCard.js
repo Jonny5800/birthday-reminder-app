@@ -3,7 +3,6 @@ import pplInfo from "../Data/pplInfo";
 import { useState } from "react";
 
 function PersonsCard(props) {
-  const [people, setPeople] = useState(pplInfo);
   const {
     person,
     age,
@@ -11,21 +10,11 @@ function PersonsCard(props) {
     image,
     id,
     isItBirthday,
-    //deletePerson,
-
+    deletePerson,
+    handleDelete, // from second delete button
     pplObj,
     updatedPeopleList,
   } = props;
-  const onRemove = (id) => {
-    const updatedPeople = people.filter((item) => item.id !== id);
-    setPeople(updatedPeople);
-  };
-
-  const deletePerson = (id) => {
-    setPeople((people) => people.filter((delPers) => delPers.id !== id));
-    console.log(id, "should delete from PersonCard");
-    console.log(pplObj);
-  };
 
   return (
     <div className="personCard">
@@ -42,13 +31,14 @@ function PersonsCard(props) {
         </div>
       </div>
       <div className="deleteDiv">
-        <button
+        {/* <button
           onClick={() => {
             deletePerson(pplObj.id);
           }}
         >
           delete
-        </button>
+        </button> */}
+        <button onClick={handleDelete}>DELETER</button>
       </div>
     </div>
   );

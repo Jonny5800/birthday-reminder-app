@@ -17,6 +17,14 @@ function App() {
   //   console.log(id, "should delete from App");
   // };
 
+  const handleDelete = (id) => {
+    // setPeople((prevVal)=> )
+    const newPeople = people.filter((ident) => ident !== id);
+    setPeople(newPeople);
+    console.log(id, "handle delete clicked");
+    // console.log(pplObj, "object from JS");
+  };
+
   useEffect(() => {
     console.log(people);
   }, [people]);
@@ -32,7 +40,6 @@ function App() {
           className="form"
           addBirthdayProp={addBirthday}
           setShowForm={setShowForm}
-          //deletePerson={deletePerson} ****from commenting the function
         />
       ) : null}
       <div className="buttonDiv">
@@ -59,6 +66,7 @@ function App() {
             image,
             id,
             deletePerson,
+            //handleDelete,
           } = pplObj;
 
           return people.length > 1 ? (
@@ -72,7 +80,9 @@ function App() {
               isItBirthday={isItBirthday}
               image={image}
               id={id}
+              handleDelete={handleDelete}
               setPeople={setPeople}
+              deletePerson={deletePerson}
               updatedPeopleList={people} //the list of people
             />
           ) : (

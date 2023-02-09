@@ -31,14 +31,18 @@ function PersonsCard(props) {
         </div>
       </div>
       <div className="deleteDiv">
-        {/* <button
-          onClick={() => {
-            deletePerson(pplObj.id);
-          }}
+        <button 
+        onClick={deletePerson}
+
+        // onCLick={deletePerson(pplObj.id)} 
+        
+        // onClick={() => { 
+          //   deletePerson(pplObj.id);
+          // }}
         >
           delete
-        </button> */}
-        <button onClick={handleDelete}>DELETER</button>
+        </button>
+        {/* <button onClick={handleDelete}>DELETER</button> */}
       </div>
     </div>
   );

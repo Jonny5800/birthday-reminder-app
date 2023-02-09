@@ -32,7 +32,7 @@ const BirthdayForm = (props) => {
     console.log(e.target.value);
   };
 
-  /***************/
+  /***************/ 
   const birthdayFormSubmit = (e) => {
     e.preventDefault();
 

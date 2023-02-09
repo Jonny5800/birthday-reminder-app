@@ -11,25 +11,27 @@ function App() {
 
   const addBirthday = (newBirthdayEntry) => {
     setPeople([newBirthdayEntry, ...people]);
+  }; 
+  const deletePerson = (id) => {
+    setPeople(people.filter((people) => people.id !== id));
+    console.log(id, "should delete from App");
   };
-  // const deletePerson = (id) => {
-  //   setPeople(people.filter((people) => people.id !== id));
-  //   console.log(id, "should delete from App");
-  // };
 
-  const handleDelete = (id) => {
-    // setPeople((prevVal)=> )
-    const newPeople = people.filter((ident) => ident !== id);
-    setPeople(newPeople);
-    console.log(id, "handle delete clicked");
+  // const handleDelete = (id) => {
+  //   // setPeople((prevVal)=> )
+  //   const newPeople = people.filter((ident) => ident !== id);
+  //   setPeople(newPeople);
+  //   console.log(id, "DELETER app js")
+  //   console.log(newPeople, "new people")
+    
     // console.log(pplObj, "object from JS");
-  };
+  //};
 
   useEffect(() => {
     console.log(people);
   }, [people]);
 
-  return (
+  return ( 
     <div className="App">
       <div className="headerDiv">
         <h1>Birthday Reminder App</h1>
@@ -70,6 +72,7 @@ function App() {
           } = pplObj;
 
           return people.length > 1 ? (
+
             <PersonsCard
               className="personCard"
               person={person}
@@ -80,7 +83,7 @@ function App() {
               isItBirthday={isItBirthday}
               image={image}
               id={id}
-              handleDelete={handleDelete}
+              //handleDelete={handleDelete}
               setPeople={setPeople}
               deletePerson={deletePerson}
               updatedPeopleList={people} //the list of people

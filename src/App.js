@@ -1,7 +1,6 @@
 import "./App.css";
 import PersonsCard from "./Components/PersonsCard";
-import { useEffect, useState } from "react";
-import { v4 as uuid } from "uuid";
+import { useState } from "react";
 import BirthdayForm from "./Components/BirthdayForm";
 import pplInfo from "./Data/pplInfo";
 
@@ -11,31 +10,18 @@ function App() {
 
   const addBirthday = (newBirthdayEntry) => {
     setPeople([newBirthdayEntry, ...people]);
-  }; 
+    console.log(newBirthdayEntry.id, "new birth");
+  };
   const deletePerson = (id) => {
     setPeople(people.filter((people) => people.id !== id));
     console.log(id, "should delete from App");
   };
 
-  // const handleDelete = (id) => {
-  //   // setPeople((prevVal)=> )
-  //   const newPeople = people.filter((ident) => ident !== id);
-  //   setPeople(newPeople);
-  //   console.log(id, "DELETER app js")
-  //   console.log(newPeople, "new people")
-    
-    // console.log(pplObj, "object from JS");
-  //};
-
-  useEffect(() => {
-    console.log(people);
-  }, [people]);
-
-  return ( 
+  return (
     <div className="App">
       <div className="headerDiv">
         <h1>Birthday Reminder App</h1>
-        <h2>There are {people.length} Birthdays!</h2>
+        {/* <h2>There are {people.length} Birthdays!</h2> */}
       </div>
       {showForm ? (
         <BirthdayForm
@@ -60,43 +46,25 @@ function App() {
       </div>
       <div>
         {people.map((pplObj) => {
-          const {
-            person,
-            age,
-            birthMonth,
-            isItBirthday,
-            image,
-            id,
-            deletePerson,
-            //handleDelete,
-          } = pplObj;
+          const { person, age, birthMonth, image, id } = pplObj;
 
-          return people.length > 1 ? (
-
+          return (
             <PersonsCard
               className="personCard"
               person={person}
               age={age}
-              key={uuid()}
-              pplObj={pplObj}
+              key={id}
               birthMonth={birthMonth}
-              isItBirthday={isItBirthday}
               image={image}
               id={id}
-              //handleDelete={handleDelete}
-              setPeople={setPeople}
               deletePerson={deletePerson}
-              updatedPeopleList={people} //the list of people
             />
-          ) : (
-            []
           );
         })}
       </div>
-
       <button
         onClick={() => {
-          setPeople([""]);
+          setPeople([]);
         }}
       >
         Clear ALl

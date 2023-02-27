@@ -3,7 +3,7 @@ import { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 const BirthdayForm = (props) => {
-  const { addBirthdayProp, showForm, setShowForm } = props;
+  const { addBirthdayProp, setShowForm } = props;
 
   const [person, setText] = useState("");
   const changeText = (e) => {
@@ -25,48 +25,36 @@ const BirthdayForm = (props) => {
     setImage(e.target.value);
     console.log(e.target.value);
   };
-
   const [birthThisMonth, setBirthThisMonth] = useState("");
   const birthMonthTrue = (e) => {
     setBirthThisMonth(e.target.value);
     console.log(e.target.value);
   };
 
-  /***************/ 
+
   const birthdayFormSubmit = (e) => {
     e.preventDefault();
 
-    const newBirthdayObj = {
+    const newBirthdayObj = 
+    {
       person, //: person,
       age, //: age,
       birthMonth, //: birthMonth,
       image, //: image,
       id: uuid(),
     };
-
     addBirthdayProp(newBirthdayObj);
-
-    //clear the name, age, month & URL after
-    // setText("");
-    //setage("");
-    //setbirthMonth("");
-    // setimage("");
-    // () => {
-    // return setShowForm(false);
-    // };
     setShowForm(false);
   };
-  /*************************/
+  
   return (
     <form onSubmit={birthdayFormSubmit}>
-      {/*  TO GO INSIDE FORM OPENER*/}
+     
       <label>Submit a New Birthday</label>
-      {/* Form container */}
+     
       <div className="container">
         <div className="left">
-          {/* <label>Birth Month</label> */}
-          {/* <label>Url of picture</label> */}
-          <div>
+                  <div>
             <label>Name</label>
           </div>
           <div>
@@ -79,7 +67,6 @@ const BirthdayForm = (props) => {
             <label>Url of picture</label>
           </div>
         </div>
-
         <div className="right">
           <div>
             <input
@@ -118,24 +105,9 @@ const BirthdayForm = (props) => {
             />
           </div>
         </div>
-
-        {/* form container */}
       </div>
       <div className="buttonDiv">
-        <button
-          type="submit"
-          // onClick={() => {
-          //   console.log("submit");
-          //   if (showForm === false) {
-          //     setShowForm(true);
-          //   } else if (showForm === true) {
-          //     setShowForm(false);
-          //   }
-          // }
-          // }
-        >
-          Submit
-        </button>
+        <button type="submit"> Submit </button>
       </div>
     </form>
   );

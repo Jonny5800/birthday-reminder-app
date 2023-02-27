@@ -16,7 +16,7 @@ const pplInfo = [
     image: "https://www.onthisday.com/images/people/dwayne-johnson-medium.jpg",
     id: 2,
   },
-  ///home/jonny5800/repos/sandbox/react/birthday-reminder-app/src/Images/beejayHall.jpeg
+  
   {
     person: "Jonny  Hall",
     age: 35,

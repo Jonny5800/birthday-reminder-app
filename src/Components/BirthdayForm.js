@@ -25,46 +25,41 @@ const BirthdayForm = (props) => {
     setImage(e.target.value);
     console.log(e.target.value);
   };
-  const [birthThisMonth, setBirthThisMonth] = useState("");
-  const birthMonthTrue = (e) => {
-    setBirthThisMonth(e.target.value);
-    console.log(e.target.value);
-  };
-
 
   const birthdayFormSubmit = (e) => {
     e.preventDefault();
 
-    const newBirthdayObj = 
-    {
-      person, //: person,
-      age, //: age,
-      birthMonth, //: birthMonth,
-      image, //: image,
+    const newBirthdayObj = {
+      person,
+      age,
+      birthMonth,
+      image,
       id: uuid(),
     };
     addBirthdayProp(newBirthdayObj);
     setShowForm(false);
   };
-  
+
   return (
     <form onSubmit={birthdayFormSubmit}>
-     
-      <label>Submit a New Birthday</label>
-     
+      <label>
+        {" "}
+        <h2 className="formTitle">Submit a New Birthday</h2>
+      </label>
+
       <div className="container">
         <div className="left">
-                  <div>
-            <label>Name</label>
+          <div>
+            <label className="nameTag">Name</label>
           </div>
           <div>
-            <label>Age</label>
+            <label className="ageTag">Age</label>
           </div>
           <div>
-            <label>Birth Month</label>
+            <label className="monthTag">Birth Month</label>
           </div>
           <div>
-            <label>Url of picture</label>
+            <label className="urlTag">Url of picture</label>
           </div>
         </div>
         <div className="right">
@@ -99,7 +94,7 @@ const BirthdayForm = (props) => {
             <input
               type="text"
               name={"imageUrl"}
-              placeholder={"paste full URL"}
+              placeholder={"Paste an image's full URL"}
               value={image}
               onChange={changePicUrl}
             />
@@ -107,7 +102,10 @@ const BirthdayForm = (props) => {
         </div>
       </div>
       <div className="buttonDiv">
-        <button type="submit"> Submit </button>
+        <button className="submitButton" type="submit">
+          {""}
+          Submit{""}
+        </button>
       </div>
     </form>
   );

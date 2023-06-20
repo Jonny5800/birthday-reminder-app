@@ -1,6 +1,6 @@
 const pplInfo = [
   {
-    person: "Alex Hall",
+    person: "Alex Hormozi",
     age: 25,
     birthMonth: "August 5th",
     isItBirthday: true,
@@ -9,7 +9,7 @@ const pplInfo = [
     id: 1,
   },
   {
-    person: "BeeJay Hall",
+    person: "Brian Tracy",
     age: 28,
     birthMonth: "May 5th",
     isItBirthday: true,
@@ -27,7 +27,7 @@ const pplInfo = [
     id: 3,
   },
   {
-    person: "Anthony Ellis",
+    person: "Eric Thomas",
     age: 36,
     birthMonth: "January 9th",
     isItBirthday: false,

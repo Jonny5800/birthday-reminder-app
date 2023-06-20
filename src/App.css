@@ -1,20 +1,46 @@
-* {
-  /* border: 1px solid black; */
+.wholeReminder{
+border-radius: 30px;
+background-color: rgb(111, 13, 208);
+background-color: rgb(232, 94, 232);
+background-color: linear-gradient(to top, red, blue );
 }
 .form {
   display: flex;
   text-align: center;
 }
+.formTitle{
+  text-align: center;
+  color: rgb(31, 89, 235);
+	font-size: 32px;
+	-webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
+.nameTag, .ageTag, .monthTag, .urlTag {
+  font-style: lucida ;
+  font-weight: bold;
+}
+.submitButton{
+  margin-left: 20px;
+}
 body {
   display: flex;
   justify-content: center;
 }
+.addButton {
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  background-color: rgb(31, 89, 235);
+  margin-left: 20px;
+  color: white;
+  font-weight: bold;
+}
 .container {
   display: flex;
-}
+ }
 .container > .right {
   flex-grow: 1;
-}
+ }
 .container > div {
   display: flex;
   flex-direction: column;
@@ -24,7 +50,6 @@ body {
 .left {
   align-items: flex-end;
 }
-
 .left > div,
 .right > div {
   margin: 5px 0;
@@ -46,17 +71,23 @@ input {
   padding: 10px;
 }
 .headerDiv {
-  background-color: skyblue;
+  background-color: rgb(31, 89, 235);
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  padding: 1px 30px;
+  margin-top: 10px;
+  color: white;
 }
 .picNDetailsDiv {
   display: flex;
   align-items: center;
+  height: 123.22px ;
 }
 .imageDiv {
 }
 .images {
   object-fit: cover;
-  max-height: 130px;
+  max-height: 120px;
   max-width: 120px;
   border-radius: 35px;
   border: none;
@@ -67,11 +98,15 @@ input {
   margin-left: 40px;
   margin-bottom: 30px;
 }
+.deleteButton{
+  padding: 4px;
+  border-radius: 7px;
+}
 .details {
   border: 1px red solid;
 }
 .labelName {
-  color: blue;
+  color: rgb(31, 89, 235);
   margin: 0 auto;
 }
 .labelAge {
@@ -89,9 +124,27 @@ input {
 .App-link {
   color: #61dafb;
 }
+.clearButtonContainer{
+   text-align: center;
+margin: 10px;   
+}
+.clearButton{
+  margin: 10px 0px;
+  text-align: center;
+  border: solid 1px rgb(232, 94, 232);
+  border-radius: 30px;
+}
+.buttonToClear{
+  background-color: rgb(31, 89, 235);
+  padding: 10px 60px;
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 30px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 20s linear; 
   }
 }
 @keyframes App-logo-spin {

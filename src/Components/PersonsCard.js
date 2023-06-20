@@ -1,16 +1,9 @@
 import React from "react";
 
 function PersonsCard(props) {
-  const {
-    person,
-    age,
-    birthMonth,
-    image,
-    id,
-   deletePerson,
-      } = props;
+  const { person, age, birthMonth, image, id, deletePerson } = props;
 
-      return (
+  return (
     <div className="personCard">
       <div className="picNDetailsDiv">
         <div className="imageDiv">
@@ -20,14 +13,18 @@ function PersonsCard(props) {
           <h4 className="labelName">{person}</h4>
           <h5 className="labelAge">{age}</h5>
           <h5 className="labelMonth">{birthMonth}</h5>
-            </div>
+        </div>
       </div>
       <div className="deleteDiv">
-        <button 
-             onClick={() => {deletePerson(id)}}
-        >delete
+        <button
+          className="deleteButton"
+          onClick={() => {
+            deletePerson(id);
+          }}
+        >
+          Remove
         </button>
-         </div>
+      </div>
     </div>
   );
 }

@@ -23,7 +23,7 @@ const pplInfo = [
     birthMonth: "October 5th",
     isItBirthday: true,
     image:
-      "https://wtop.com/wp-content/uploads/2018/04/Snoop_Dog_Stanley_Cup_14627.jpg",
+      "https://people.com/thmb/kYb1HHyjaCaWC1VFBFhB-hB35T4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(749x0:751x2)/snoop-dogg-the-voice-db7a12129de34aa0b2f91802a06605ee.jpg",
     id: 3,
   },
   {

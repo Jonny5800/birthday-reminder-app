@@ -3,6 +3,8 @@ import PersonsCard from "./Components/PersonsCard";
 import { useState } from "react";
 import BirthdayForm from "./Components/BirthdayForm";
 import pplInfo from "./Data/pplInfo";
+// import TrialArea from "./Components/TrialArea";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [people, setPeople] = useState(pplInfo);
@@ -78,6 +80,7 @@ function App() {
             </div>
           </div>
           {/*  */}
+          {/* <TrialArea /> */}
         </div>
       </div>
     </div>

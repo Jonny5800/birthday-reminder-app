@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/birthday-reminder-app/static/css/main.25abf26e.css",
-    "main.js": "/birthday-reminder-app/static/js/main.45af7e29.js",
+    "main.css": "/birthday-reminder-app/static/css/main.5fef4be0.css",
+    "main.js": "/birthday-reminder-app/static/js/main.781d4125.js",
     "static/js/787.c9d95f02.chunk.js": "/birthday-reminder-app/static/js/787.c9d95f02.chunk.js",
     "index.html": "/birthday-reminder-app/index.html",
-    "main.25abf26e.css.map": "/birthday-reminder-app/static/css/main.25abf26e.css.map",
-    "main.45af7e29.js.map": "/birthday-reminder-app/static/js/main.45af7e29.js.map",
+    "main.5fef4be0.css.map": "/birthday-reminder-app/static/css/main.5fef4be0.css.map",
+    "main.781d4125.js.map": "/birthday-reminder-app/static/js/main.781d4125.js.map",
     "787.c9d95f02.chunk.js.map": "/birthday-reminder-app/static/js/787.c9d95f02.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.25abf26e.css",
-    "static/js/main.45af7e29.js"
+    "static/css/main.5fef4be0.css",
+    "static/js/main.781d4125.js"
   ]
 }

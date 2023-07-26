@@ -3,7 +3,7 @@ import PersonsCard from "./Components/PersonsCard";
 import { useState } from "react";
 import BirthdayForm from "./Components/BirthdayForm";
 import pplInfo from "./Data/pplInfo";
-// import TrialArea from "./Components/TrialArea";
+import TrialArea from "./Components/TrialArea";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -19,13 +19,33 @@ function App() {
     console.log(id, "should delete from App");
   };
 
+  const confirmClearBirthdays = () => {
+    if (people.length === 0) {
+      alert("Nothing left to clear");
+    } else {
+      const userDecision = window.confirm("Do you really want to clear all?");
+      if (userDecision) {
+        setPeople([]);
+        alert("Birthdays Cleared (but you can refresh)");
+      } else {
+        alert("Good decision");
+      }
+    }
+  };
+
   return (
     <div className="App">
       <div className="wholeReminderBack">
         <div className="wholeReminder">
           <div className="headerDiv">
             <h1>Birthday Reminder App</h1>
-            {/* <h2>There are {people.length} Birthdays!</h2> */}
+            {people.length > 0 ? (
+              <h2 className="birthdayCount">
+                There are {people.length} Birthdays! &#x1F973;
+              </h2>
+            ) : (
+              <h2>No Birthdays! &#x2639; (add one)</h2>
+            )}
           </div>
           {showForm ? (
             <BirthdayForm
@@ -46,7 +66,7 @@ function App() {
                 }
               }}
             >
-              Add A Birthday
+              {showForm ? "Close Form" : "Add A Birthday"}
             </button>
           </div>
           <div>
@@ -69,18 +89,15 @@ function App() {
           </div>
           <div className="clearButton">
             <div className="clearButtonContainer">
-              <button
-                className="buttonToClear"
-                onClick={() => {
-                  setPeople([]);
-                }}
-              >
+              <button className="buttonToClear" onClick={confirmClearBirthdays}>
                 Clear All
               </button>
             </div>
           </div>
           {/*  */}
-          {/* <TrialArea /> */}
+          <div className="bootCardDiv">
+            <TrialArea />
+          </div>
         </div>
       </div>
     </div>

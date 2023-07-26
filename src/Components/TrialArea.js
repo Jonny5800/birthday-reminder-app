@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 
 const TrialArea = () => {
   return (
-    <div className="container">
+    <div className="bootCards">
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
